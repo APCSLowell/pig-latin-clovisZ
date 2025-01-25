@@ -56,10 +56,13 @@ public class PigLatin {
         return sWord + "ay";
       }
       if (findFirstVowel(sWord) != 0) {
-        return sWord.substring(1) + sWord.substring(0, 1) + "ay";
+        int index = 0;
+        while (findFirstVowel(sWord.substring(index, index+1)) == -1)
+            index++;
+        return sWord.substring(index) + sWord.substring(0, index) + "ay";
       }
       else {
-    return "ERROR!";
+        return "ERROR!";
       }
     }
 }//end PigLatin class
